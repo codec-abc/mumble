@@ -9,10 +9,10 @@ jobs:
     name: Windows
     runs-on: windows-latest
     steps:
-      - name: Checkout sources
-        uses: actions/checkout@v2
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
+      - name: Checkout sources
+        uses: actions/checkout@v2
         with:
           version: ${{env.QT_VERSION}}
       - name: Build
