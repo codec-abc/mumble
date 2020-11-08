@@ -17,7 +17,7 @@ jobs:
           version: ${{env.QT_VERSION}}
       - name: Build
         run: |
-          call /scripts/vcpkg/get_mumble_dependencies.ps1
+          & "./scripts/vcpkg/get_mumble_dependencies.ps1"
           cmake --build . 
         working-directory: ./
         shell: powershell
