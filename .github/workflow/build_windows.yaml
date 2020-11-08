@@ -1,0 +1,23 @@
+name: PC application build
+on: [push]
+
+env:
+    QT_VERSION: '5.14.2'
+
+jobs:
+  windows:
+    name: Windows
+    runs-on: windows-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: ${{env.QT_VERSION}}
+      - name: Build
+        run: |
+          call bidule.powershell
+          camake & build
+        working-directory: ./
+        shell: powershell
